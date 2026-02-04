@@ -1,119 +1,22 @@
-import { DoorOpen, NotebookPen, School2 } from "lucide-react";
 import { AboutSection } from "./components/About";
 import { CTA } from "./components/CTA";
 import { FAQ } from "./components/Faq";
 import { Features } from "./components/Feature";
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
-
+import { FooterSection } from "./components/footer";
+import { HowWeWorkSection } from "./components/HowWeWork";
+import {
+	links,
+	features,
+	faqs,
+	howWeWork,
+	ourProcess,
+	teamMember
+} from "./constants";
+import reactSvg from "./assets/react.svg";
+import { MeetOurTeamSection } from "./components/MeetOurTeams";
 function App() {
-	const links = [
-		{ href: "#about", label: "About" },
-		{ href: "#feature", label: "Feature" },
-		{ href: "#faq", label: "Faq" },
-		{ href: "#pricing", label: "Pricing" }
-	];
-
-	const features = [
-		{
-			title: "School Creation",
-			description:
-				"Owner are able to create schools, then students can register",
-			icon: <School2 />
-		},
-		{
-			title: "Exams",
-			description:
-				"Owners are able to create exams for registered students to write",
-			icon: <NotebookPen />
-		},
-		{
-			title: "Admission",
-			description: "Owner of the creates schools can manage admission status",
-			icon: <DoorOpen />
-		}
-	];
-
-	// const pricingPlan = [
-	// 	{
-	// 		name: "free",
-	// 		price: "0$",
-	// 		billingCycle: "Montly",
-	// 		features: [
-	// 			"Register 10 students at the same time",
-	// 			"Set 10 exam questions",
-	// 			"can manage only one school"
-	// 		],
-	// 		cta: { label: "Get Started", href: "#", varaint: "primary" }
-	// 	},
-	// 	{
-	// 		name: "Basic",
-	// 		price: "30$",
-	// 		billingCycle: "Montly",
-	// 		features: [
-	// 			"Register 20 students at the same time",
-	// 			"Set 20 exam questions",
-	// 			"can manage only one school"
-	// 		],
-	// 		cta: { label: "Get Started", href: "#", varaint: "primary" },
-	// 		recommended: true
-	// 	},
-	// 	{
-	// 		name: "Premuim",
-	// 		price: "40$",
-	// 		billingCycle: "Montly",
-	// 		features: [
-	// 			"Register 30 students at the same time",
-	// 			"Set 30 exam questions",
-	// 			"can manage only five school"
-	// 		],
-	// 		cta: { label: "Get Started", href: "#", varaint: "primary" }
-	// 	}
-	// 	// {
-	// 	// 	name: "Advance",
-	// 	// 	price: "60$",
-	// 	// 	billingCycle: "Montly",
-	// 	// 	features: [
-	// 	// 		"Register unlimited students at the same time",
-	// 	// 		"Set unlimted exam questions",
-	// 	// 		"can manage only 10 school"
-	// 	// 	],
-	// 	// 	cta: { label: "Get Started", href: "#", varaint: "primary" }
-	// 	// }
-	// ];
-
-	const faqs = [
-		{
-			question: "What is school software",
-			answer:
-				"School software is a solution built for school owners or managers to simplify and make easy complex school proccess. School software provides tools that are accecible and affordable, also removes the cost of maintaince."
-		},
-		{
-			question: "Can i recive payments through school software",
-			answer:
-				"No, you can't just do that. in the upcoming updates thos features would be avaliable"
-		},
-		{
-			question: "Can each student have an account",
-			answer:
-				"No, you can't just do that. in the upcoming updates thos features would be avaliable"
-		},
-		{
-			question: "Can each student have an account",
-			answer:
-				"No, you can't just do that. in the upcoming updates thos features would be avaliable"
-		},
-		{
-			question: "Can studnents check thier results",
-			answer:
-				"No, you can't just do that. in the upcoming updates thos features would be avaliable"
-		},
-		{
-			question: "Can teachers also manage academic affairs",
-			answer:
-				"No, you can't just do that. in the upcoming updates thos features would be avaliable"
-		}
-	];
 	return (
 		<div className="w-full flex flex-col items-center gap-8">
 			<div>
@@ -121,41 +24,70 @@ function App() {
 					links={links}
 					cta={{ href: "#", label: "Get Started", variant: "primary" }}
 					logo={
-						<h1 className="text-3xl font-bold text-slate-700">
-							School Software
-						</h1>
+						<h1 className="text-3xl font-bold text-slate-700">Inovation Hub</h1>
 					}
 					variant="sticky"
 				/>
 			</div>
-			<div className="w-full h-full md:h-screen pt-28 bg-slate-50">
+			<div className="w-full h-full md:h-screen  bg-slate-50">
 				<Hero
-					headline="Build Your Online School"
-					subheadline="Transfer repated tasks or school processes with the provided tools we provide"
-					variant="centered"
-					cta={[{ href: "#", label: "Get Started", variant: "primary" }]}
+					headline="Build Your Web Solution With Inovation Hub"
+					subheadline="We design and develop business-focused digital solutions that increase conversions, automate processes, and help your business scale faster"
+					variant="full-screen"
+					cta={[{ href: "#", label: "Start Your Project", variant: "primary" }]}
 				/>
 			</div>
 			<AboutSection
-				headline="About School Software"
+				headline="ABOUT INVISONHUB"
 				variant="centered"
-				subheadline={
-					"School software is a solution built for school owners or managers to simplify and make easy complex school proccess. School software provides tools that are accecible and affordable, also removes the cost of maintaince."
-				}
+				subheadline={`We focus on building digital solutions for businesses, not just applications.
+							Our approach is centered on increasing business conversions, automating repetitive business processes, and simplifying complex workflows to save time and improve efficiency.
+							Rather than focusing only on design or features, we identify the real problems within your business operations and build scalable, high-quality solutions that solve them.
+							Our goal is to help businesses grow faster by delivering reliable systems with speed, clarity, and long-term value.`}
 			/>
 			<Features
 				features={features}
 				variant="grid"
-				headline="Features"
-				subheadline="create your school with schooic"
+				headline="SERVICES"
+				subheadline="Our Services"
 			/>
-			<FAQ items={faqs} headline={"Faqs"} variant="grid" />
+			<HowWeWorkSection
+				steps={howWeWork}
+				headline="HOW WE WORK"
+				subheadline="How We Work"
+				variant="cards"
+			/>
+			<HowWeWorkSection
+				steps={ourProcess}
+				headline="OUR PROCESS"
+				subheadline="Our Problem-Solving Approach"
+				variant="centered"
+				media={<img src={reactSvg} alt="" />}
+			/>
+			<FAQ
+				items={faqs}
+				headline={"FAQS"}
+				subheadline="Frequently Asked Questions"
+				variant="accordion"
+			/>
+			<MeetOurTeamSection
+				headline={"MEET OUR TEAM"}
+				subheadline="Meet Our Team"
+				members={teamMember}
+				variant="cards"
+			/>
 			<div className="mb-10">
 				<CTA
-					ctaPrimary={{ href: "#", label: "Get Started" }}
-					headline="Build Your Online Admission System Now"
+					ctaPrimary={{ href: "#", label: "Start Your Project" }}
+					headline="Ready to Build a Solution for Your Business?"
+					subheadline="Let’s turn your business challenges into scalable digital solutions"
 				/>
 			</div>
+			<FooterSection
+				companyName="TWT SCHOOL SOFTWARE"
+				links={links}
+				variant="simple"
+			/>
 		</div>
 	);
 }
