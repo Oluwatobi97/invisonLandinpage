@@ -4,6 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 // Types
 export interface NavLink {
@@ -116,24 +117,28 @@ export const Navbar: React.FC<NavbarProps> = ({
 				))}
 			</div>
 
-			{/* CTA */}
-			{cta && (
-				<a
-					href={cta.href}
-					className={cn(
-						"hidden md:inline-flex items-center justify-center",
-						"px-4 py-2 rounded-md text-sm font-semibold",
-						"transition-all duration-300",
-						"hover:-translate-y-px active:translate-y-0",
-						"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
-						cta.variant === "primary"
-							? "bg-primary text-white shadow-sm hover:shadow-md hover:bg-primary/90"
-							: "bg-accent text-white shadow-sm hover:shadow-md hover:bg-accent/90"
-					)}
-				>
-					{cta.label}
-				</a>
-			)}
+			{/* CTA + Theme toggle (desktop) */}
+			<div className="hidden md:flex items-center gap-3">
+				{cta && (
+					<a
+						href={cta.href}
+						className={cn(
+							"inline-flex items-center justify-center",
+							"px-4 py-2 rounded-md text-sm font-semibold",
+							"transition-all duration-300",
+							"hover:-translate-y-px active:translate-y-0",
+							"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
+							cta.variant === "primary"
+								? "bg-primary text-white shadow-sm hover:shadow-md hover:bg-primary/90"
+								: "bg-accent text-white shadow-sm hover:shadow-md hover:bg-accent/90"
+						)}
+					>
+						{cta.label}
+					</a>
+				)}
+
+				<ThemeToggleButton />
+			</div>
 
 			{/* Mobile Menu Button */}
 			<button
@@ -188,6 +193,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 								{cta.label}
 							</a>
 						)}
+
+						<div className="px-6 pb-4">
+							<ThemeToggleButton />
+						</div>
 					</motion.div>
 				)}
 			</AnimatePresence>

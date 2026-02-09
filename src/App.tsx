@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { AboutSection } from "./components/About";
 import { CTA } from "./components/CTA";
 import { FAQ } from "./components/Faq";
@@ -16,9 +17,15 @@ import {
 } from "./constants";
 import reactSvg from "./assets/react.svg";
 import { MeetOurTeamSection } from "./components/MeetOurTeams";
+import { loadTheme } from "./utils/theme";
+
 function App() {
+	useEffect(() => {
+		loadTheme();
+	}, []);
+
 	return (
-		<div className="w-full flex flex-col items-center gap-8">
+		<div className="min-h-screen w-full flex flex-col items-center gap-8 bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
 			<div>
 				<Navbar
 					links={links}
@@ -29,7 +36,7 @@ function App() {
 					variant="sticky"
 				/>
 			</div>
-			<div className="w-full h-full md:h-screen  bg-slate-50">
+			<div className="w-full h-full md:h-screen">
 				<Hero
 					headline="Build Your Web Solution With Inovation Hub"
 					subheadline="We design and develop business-focused digital solutions that increase conversions, automate processes, and help your business scale faster"

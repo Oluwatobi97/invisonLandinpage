@@ -151,7 +151,7 @@ export function Hero({
 				>
 					<motion.h1
 						variants={heroItem}
-						className="text-3xl font-bold leading-tight text-slate-900 sm:text-5xl"
+						className="text-3xl font-bold leading-tight sm:text-5xl"
 					>
 						{headline}
 					</motion.h1>
@@ -159,7 +159,7 @@ export function Hero({
 					{subheadline &&
 						<motion.p
 							variants={heroItem}
-							className="max-w-xl text-base text-slate-600 sm:text-lg"
+							className="max-w-xl text-base sm:text-lg text-[var(--muted-text)]"
 						>
 							{subheadline}
 						</motion.p>}
@@ -167,18 +167,21 @@ export function Hero({
 					{/* CTAs */}
 					{cta &&
 						cta.length > 0 &&
-						<motion.div variants={heroItem} className="flex flex-wrap gap-4">
+						<motion.div
+							variants={heroItem}
+							className="flex flex-wrap gap-4 justify-center md:justify-start"
+						>
 							{cta.map((btn, index) =>
 								<a
 									key={index}
 									href={btn.href}
 									className={cn(
-										"inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold",
+										"inline-flex items-center justify-center rounded px-6 py-3 text-sm font-semibold",
 										"transition-all duration-300",
 										"hover:-translate-y-px active:translate-y-0",
 										btn.variant === "secondary"
-											? "bg-slate-200 text-slate-900 hover:bg-slate-300"
-											: "bg-linear-to-r from-emerald-400 to-cyan-500 text-white hover:opacity-90"
+											? "border border-[var(--primary-color)] text-[var(--primary-color)] bg-transparent"
+											: "bg-[var(--primary-color)] text-white"
 									)}
 								>
 									{btn.label}
